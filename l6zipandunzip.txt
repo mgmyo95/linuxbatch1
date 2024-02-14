@@ -1,0 +1,21 @@
+=>Zip 
+zip l1samplezip.zip l1intro.txt
+zip l5example.zip l5sample.txt l5eg.txt l5example.txt
+zip l3sample.zip l3history.txt l4folder.txt myfolder9 yourfolder8	
+zip allfile.zip *  (* all / any)
+
+
+
+=>Unzip 
+mkdir -p myzip 
+cp -r allfile.zip myzip 
+cd myzip 
+ls 
+du (disk use)
+du -h (disk use human)
+du -h allfile.zip 
+unzip allfile.zip 
+
+--------------------------------------- 
+
+7ZP

@@ -1,0 +1,42 @@
+=>Create Folder or Create Directories 
+
+mkdir myfolder1   (make directory)
+mkdir -p myfolder2  (no error if existing , make parent directories)
+mkdir -p myfolder3
+cd myfolder3 
+mkdir -p myfolder4 
+cd -
+mkdir -p myfolder5/myfolder6/myfolder7 
+mkdir myfolder8
+mkdir -p myfolder9/myfolder10
+
+=>Rename Folder 
+mv myfolder10 myfolder9
+
+=>Delete Folder or Remove Directories 
+rm -rf myfolder1    (rm = remove , rf = remove folder)
+rm test.txt         (rm ka file delete ya)
+
+test.txt 
+rm -rf test.txt 
+
+rm -rf myfolder3/myfolder4   	Note:only delete myfolder4 
+
+rm -rf myfolder5 				Note:delete myfolder5 and subfolder 6 and 7
+rmdir myfolder2 		
+mkdir myfolder4
+rmdir -p myfolder4		
+rmdir myfolder7/myfolder8/myfolder9    Note:only delete myfolder9 
+rmdir -p myfolder7/myfolder8    Note:only delete myfolder7 and myfolder8
+
+
+=>Copy Folder (recursive = r)
+cp -r myfolder8 yourfolder8
+cp -r myfolder9 yourfolder9
+cp -r myfolder8 myfolder9
+cp -r yourfolder8 yourfolder9/myfolder10 
+
+
+
+
+18CP

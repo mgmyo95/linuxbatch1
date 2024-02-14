@@ -1,0 +1,69 @@
+=>32bit vs 64bit 
+
+
+Free 
+Not user-friendly 
+Very reliable 
+best for multi-tasking 
+very secure 
+open to public 
+
+=>Linux Kernel  (a thing that  connect between hardware and software)
+
+=> Linux Distribution  (ubuntu is a distrubution of linux )
+distrowatch.com 
+distrowatch.com  > Menu Bar > DistroWatch.com > Page Hit Ranking 
+
+Ubuntu    Free 
+CentOS    Free 
+Redhat    Paid (Not Open Source )      
+Fedora    Free
+SuSe      Free and Paid 
+Debian    Free 
+Linux Mint Free
+Arch Linux Free 
+
+=>Open Terminal (Linux is Case sensitive Operation System)
+ctl+alt+t 
+
+=>Linux Color Coading 
+
+Blue = Directory (such as url,etc..)Folder
+Green = Executable or recognized data file 
+Skyeblue = Symbolic link file (shortcut file)
+Pink  = Graphic image file 
+Red = Archive file (zip,tar,tar,gz etc...)
+
+
+=>Common Directory(8)
+/      "Root" the top of the file system
+/bin   Binary or Executable programs
+/etc   System configuration files
+/home  Home directory. It is the fefault current directory
+/opt   Optional or third-party software  
+/tmp   Temporty space,typically cleared on reboot
+/usr   User related programs 
+/var   Variable data,most notably log files
+
+
+=>Basic Line Commands 
+ls - Lists directory contents 
+cd - Changes the current directory 
+pwd - Displays the present working directory (/home/myo/Documents)
+cat - Concatenates and display file 
+echo - Display areguments to the screen 
+exit - Exits the shell or your current session 
+clear - Clear the screen 
+
+
+=>APT (Advanced Packaging Tool)
+sudo apt update 
+sudo apt-get update 
+
+sudo apt upgrade -y (yes)
+sudo apt-get upgrade -y (yes)
+
+sudo apt-get update && sudo apt-get upgrade 
+
+
+27IT 

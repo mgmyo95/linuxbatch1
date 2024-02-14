@@ -1,0 +1,85 @@
+=>Folder Navigation 
+
+.       = This directory 
+..      = The parent directory 
+cd      = Go to next folder directory 
+cd -    = Change to the previous directory 
+/       = directory separator (forward slash) 
+
+=> Chechk current directory 
+pwd                 /home/myo
+ls                  
+ls ..               myo
+ls ../..            btn dev lib libx32 mnt root snap sys var boot etc... (root folder)
+
+
+ctrl+alt+t 
+ls 
+cd Music/ 
+ls 
+cd folderone/ 
+ls 
+cd 1/
+ls 
+cd .. 1 
+ls  
+cd .. folderone, folder two 
+pwd  /home/myo/Music
+cd  'folder two' 
+ls 2 
+cd .. 
+ls 
+cd folder\ two 
+
+ctrl+alt+t 
+ls 
+cd Music/
+ls 
+cd folderone 
+ls  1 
+cd 1/ 
+ls 
+cd  home/
+ls
+
+
+ls 
+cd Music/
+ls 
+cd folderone 
+ls 
+cd 1/
+ls 
+cd -  /home/myo/Music/folderone
+cd - /home/myo/Music/folderone/1
+cd - /home/myo/Music/folderone
+cd - /home/myo/Music/folderone/1
+
+
+ls 
+cd Music/
+ls 
+cd folderone 
+ls 
+cd 1/
+ls 
+cd -- home/myo 
+
+ls 
+cd Music/
+ls 
+cd folderone 
+ls 
+cd 1/
+ls 
+cd /  root folder (under root folder)
+ls 
+cd home 
+cd myo 
+cd Music 
+ls 
+
+
+
+
+
