@@ -1,0 +1,11 @@
+=>Find 
+find 
+ctrl+c (stop)
+
+find .  (. = current folder)
+
+find -name l5file.txt
+
+
+14FD 
+
