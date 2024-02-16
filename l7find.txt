@@ -5,7 +5,13 @@ ctrl+c (stop)
 find .  (. = current folder)
 
 find -name l5file.txt
+find -name '*l5file*'
+find -name 'l5file*'   (no result cuz 'is any name end ' is any countinuously name )
+find -name '*l5file' 
+
+-----------------------------------------
 
 
 14FD 
+ 
 

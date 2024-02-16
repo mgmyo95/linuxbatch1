@@ -1,0 +1,18 @@
+=>Locate (need to install)
+sudo apt install plocate 
+/usr/bin/plocate
+
+cd /var/lib/plocate 
+ls
+sudo cat plocate.db 
+sudo updatedb 
+
+
+(i =  mean no case sensitive)
+locate -i l5file.txt 
+locate -i 'l5file' 
+locate 'L5file' 
+locate -i '*l5file*'
+locate -i '*l5file'  (no result) 
+locate -i 'l5file'
+locate -i l5file* 
