@@ -7,6 +7,11 @@ tree
 cd myzip/
 ls -l 
 
+tree 
+tree -d = list directories only (folder only)
 
+tree -C = colorize output     (for core cmd)
+ls --color = colorize output  (for core cmd)
+   
 -------------------------------------- 
 

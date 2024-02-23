@@ -117,9 +117,16 @@ cat l5eg.txt
 
 
 ls 
-ls -l  (l = list)
-ls -lh (l = list , h = human format)
-ls -lh | head 
+ls -l  				(l = long listing , display lots of information a to z)    
+ls -lh 				(-h = display file size in a human-reable format)
+ls -lh | head 		Pipe (|)
 ls -lh | head -3
 ls -lh | tail 
-ls -lh | tail -4
+ls -lh | tail -4 
+ls -lF 				(-F = Distinguish directories and files in linux)
+ls -lS 				(-S -sort files by file size , biggest to smallest in size)
+ls -l 				(list order by name , a to z)
+ls -lt 				(order by time , z to a)
+ls -l --full-time	(show by full time)
+
+21FF 
