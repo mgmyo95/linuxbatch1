@@ -130,3 +130,22 @@ ls -lt 				(order by time , z to a)
 ls -l --full-time	(show by full time)
 
 21FF 
+
+=> Listing File by Type 
+ls -l 
+ls -F 
+ls -LF 
+
+Symbol 					Meaning 
+/ 			= 			Directory  
+@ 			= 			link 
+* 			= 			Executable 
+
+=> man  (Such as help browser or Documentation )
+ctl+alt+t 
+man ls 
+man mkdir 
+man vim 
+man cat 
+
+q  (q = quit)

@@ -1,0 +1,38 @@
+=> For Shutdown 
+sudo poweroff 
+
+=> For restart (reboot)
+sudo reboot 
+
+=> Check Current User 	
+who 				myo      seat0        2024-02-28 21:33 (login screen)
+					myo      tty2         2024-02-28 21:33 (tty2)
+
+whoami 				myo  
+
+=> Check Host Name (Computer Name)
+hostname 			lenovo 
+
+=> Check 32bit processor or 64bit processor 
+uname -a 				Linux lenovo 6.5.0-21-generic #21-Ubuntu SMP 	
+						PREEMPT_DYNAMIC Wed Feb  7 14:17:40 UTC 2024 x86_64 	x86_64 x86_64 GNU/Linux					
+uname -i or uname -a 	// x86_64 
+getconf LONG_BIT		// 64 
+
+
+=> Login  as Root User 
+apt-get update 			// 13: Permission denied 
+
+sudo -s 
+Enter adminstractor use password 
+exit 
+
+(or) 
+sudo su 
+apt-get update 
+whoami 					// root 
+exit 
+
+
+// 28FP
+

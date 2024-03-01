@@ -1,2 +1,74 @@
 => File Permission 
 
+- 			file 
+d 			Directory
+
+-rw-rw-r--  1 myo myo   315 Feb 16 15:36  l8locate.txt
+
+drwxrwxr-x  2 myo myo  4096 Feb 21 22:36  l11folder / l11file.txt
+
+drwxrwxr-x  			= permission code 
+2 						= numbers of links 
+myo 					= Owner name 
+myo 					= Group name 
+4096					= Number of bytes in the file 
+Feb 21 22:36 			= Last modification time 
+l11folder 				= Folder name / file name  
+
+. 						This directory 
+.. 						The parent directory
+- 
+--------------------------------
+
+=> File Permission 
+Read (r)				= 4 		allows a file to be read 
+Write (w)				= 2			allows a file to modified 
+Execute (x)           	= 1 		allows the execution of a file 
+
+=> Permission Categories 
+Category 				Symbol 
+User 					U 
+Group 					g 
+Other 					o 
+All 					a 
+
+=> Changing Permission 
+Item 					Meaning 
+chmod 					Change mode command 
+ugoa 					User group other all 
++-= 					Add,Substract,Set permission 
+rwx 					Read,Write,Execute 
+
+=> Directory Listing Attributes 
+
+numeric value 		4(read)			2(write)		1(execute)			Permission Name 
+0					-				-				-					No Permission 
+1					-				-				x 					execute only 
+2					-				w 				- 					write only 
+3					-				w 				x   				write and execute 
+4 					r 				-				-					raedy only 		
+5					r 				-				x					read and execute 
+6					r 				w 				- 					read and write
+7					r 				w 				x 					read,write and execute 
+
+rwx = 7
+rw = 6 
+rx = 5 
+wx = 3
+r = 4 
+w = 2 
+x = 1
+
+(Note : to go)
+d or - 				rwx 			rwx 			rwx 
+type 				users/owner 	group 			other 
+
+=> Commonly Used Permission 
+Symbolic 									Octal 
+-rwx-------									700 
+-rwxr-xr-x									755 
+-rw-rw-r-- 									664 
+-rw-rw----									660 
+-rw-r--r-- 									644 
+-rwxrwxrwx 									777 
+
