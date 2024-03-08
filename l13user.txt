@@ -33,6 +33,133 @@ apt-get update
 whoami 					// root 
 exit 
 
+//Setpassword or Changing root's password 
+sudo passwd root 
+new password  : 123456789
+return new password : 123456789 
+
+=>Login as Root User 
+=>Method 1 
+sudo -s 				//root@lenovo:/home/myo#
+whoami	
+
+sudo su					//root@lenovo:/home/myo#
+whoami 
+exit 
+
+=>Method 2 				(su = switch user)
+su - 					// root@lenovo:~# 
+password : 123456789
+exit 
+
+=>Method 3 
+su 						// root@lenovo:/home/myo# 
+whoami 
+exit 
+exit
+
+
+=>Changing Password of Current User 
+su 
+password : 123456789
+whoami
+
+passwd 
+Current Passsword : 123456789
+new password : 123456789abcd 
+
+=>Create New User Account 
+=>Method 1 
+sudo useradd user1 		  (just create account, without user1 folder)
+
+=>Method 2 
+sudo useradd user2 -m 		(-m = migration) (cd / , cd home,ls = you will see system created user2 folder in under home)
+
+
+=>Display all users 
+compgen -u				(only username)
+getent passwd		(or) cat /ect/passwd	(all info)
+
+=>Display single users 
+getent passwd user1 	(single user all info)
+id 						(current login user info)
+id user1 				(single user group info) 
+
+=>Set user password in terminal 
+sudo passwd user1 
+new password : 123456789 
+return new password : 123456789
+
+=>Switch user in terminal 
+su user1 
+password : 123456789 
+whoami 
+exit 
+
+ls -l 
+su user1 
+passwod : 1234566789 
+whoami 
+cd / 
+ls 
+cd myo 				// error can't access
+cd user1			// error can't access 
+cd user2
+ls -l 				 
+mkdir user1  
+ls 
+exit 
+
+ls -l 
+su user2 
+passwod : 1234566789 
+whoami 
+cd / 
+ls 
+cd home					// error can't access
+cd user3 				// error can't access 
+cd user2 
+ls -l 				 
+mkdir userfolder2 
+echo "Hello" > folder0.txt   
+ls 
+exit 
+
+ls -l 
+su user2 
+passwod : 1234566789 
+whoami 
+cd / 
+ls 
+cd home					// error can't access
+cd user2			// error can't access 
+cd user3 
+ls -l 				 
+mkdir userfolder3 
+echo "Hello" > folder0.txt   
+ls 
+exit 
+
+
+=> Delete User 
+=> Method 1 
+sudo deluser user2 				(delete user without deleting user files and directories)
+(or)
+sudo userdel user1
+
+=> Method 2 
+sudo deluser --remove-home user3   (dlelete user deleting user files and directories under home folder)
+
+
+id user2
+compgen -u 
+cd / 
+ls 
+cd home 
+ls -l							(result = remote only adminstractor & user2 folders)
+
+// 6US
+
 
 // 28FP
 
