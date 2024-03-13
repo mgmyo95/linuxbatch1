@@ -152,7 +152,7 @@ sudo deluser --remove-home user3   (dlelete user deleting user files and directo
 
 
 id user2
-compgen -u 
+compgen -u 	
 cd / 
 ls 
 cd home 
@@ -163,3 +163,35 @@ ls -l							(result = remote only adminstractor & user2 folders)
 
 // 28FP
 
+sudo useradd user1			(without message / without password / without info)
+compgen -u
+
+sudo adduser user2		(with message / with password / with info)
+compgen -u
+
+sudo useradd user3 -m
+compgen -u 
+sudo passwd user3 
+new passwod = 123456789 
+retype new password = 123456789 
+= su user3 
+password = 123456789 
+whoami 
+exit 
+whoami 
+
+=> Lock or Unlock user password 
+sudo passwd -l user3 		(lock)
+sudo passwd -u user3 		(unlock)
+
+
+sudo passwd -l user3 
+=su user3 
+sudo password = 123456789 			(us : Authentication failure)
+whoami 
+
+sudo passwd -u user3 
+su user3 
+password = 123456789 
+whoami 
+exit 
