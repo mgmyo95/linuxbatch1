@@ -19,10 +19,10 @@ sudo groupadd group5
 sudo groupadd group6
 getent group
 
-=> Delete Group 
+=> Delete Group 	
 sudo delgroup group6 			(with message)
 (or)
-sudo groupdel group5 			(witou message)
+sudo groupdel group5 			(without message)
 getent group 
 
 => Created user into group 
@@ -62,6 +62,14 @@ getent group
 => Remove user from group 
 sudo gpasswd -d user2 group3 
 getent group 
+
+=>Rename Group 
+compgen -g
+getent group group4
+sudo groupmod -n group40 group4
+compgen -g 
+
+
 
 ------------------------------------------------ 
 13GP 

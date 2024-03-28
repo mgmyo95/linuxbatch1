@@ -56,7 +56,6 @@ exit
 su 						// root@lenovo:/home/myo# 
 whoami 
 exit 
-exit
 
 
 =>Changing Password of Current User 
@@ -195,3 +194,49 @@ su user3
 password = 123456789 
 whoami 
 exit 
+
+=>Rename User 
+compgen -g 
+sudo useradd user4 -m          // create user 
+sudo useradd user5 -m          // create user 
+sudo passwd user4 			   // create password 
+new password =  123456789
+retry new password =  123456789
+
+
+whoami 
+cd / 
+ls 
+cd home 
+ls -l 
+
+su user4 
+password  = 123456789 
+whoami 
+exit 
+whoami 
+
+=>Method 1 			(user name change / but home/user4 directory will not change)
+sudo usermod -l user40 user4 				(-l = login)
+
+=>Method 2 			(user name change and also home/user4 directory will not change)
+sudo usermod -l user50 -d /home/user50 -m user5				(-l = login)
+
+cd /
+ls 
+cd home 
+ls -l 
+cd 
+
+su user40
+password  = 123456789 
+whoami 
+exit 
+whoami 
+
+su user50 
+password  = 123456789 
+whoami 
+exit 
+whoami 
+
