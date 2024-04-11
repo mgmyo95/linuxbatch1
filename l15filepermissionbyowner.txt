@@ -1,0 +1,133 @@
+=>File Permission 
+compgen -u
+sudo useradd user10 -m
+sudo passwd user10 
+new password = 123456789 
+retry password = 123456789
+
+whoami  // myo 
+cd / 
+ls 
+cd home 
+ls -ls 
+cd user10 // bash: cd: user10: Permission denied
+
+
+su - 
+password : mg 
+whoami   // root 
+cd /
+ls 
+cd home 
+ls -l 
+cd user10  // can access 
+pwd 
+exit 
+
+
+su user10 
+123456789
+whoami // user10
+cd /
+ls 
+cd home 
+ls -l 
+cd user10 // can access 
+pwd 
+cd /
+exit
+
+=>remove permission
+su user10 
+123456789 
+whoami   // user10 
+cd /
+ls 
+cd home 
+ls -l 
+
+=>remove group permission 
+chmod g-x user10 
+chmod g-w user10 
+chmod g-r user10
+
+
+cd user10 // can access 
+pwd 
+cd / 
+cd home 
+ls -l
+
+whoami // user10 
+=>remove other permission
+chmod o-r user10 
+chmod o-w user10 
+chmod o-x user10 
+
+cd user10 // can access 
+pwd 
+cd / 
+cd home 
+ls -l 
+
+
+whoami // user10 
+=remove user permission 
+chmod u-r user10    // can access 
+chmod u-w user10 	// 
+chmod u-x user10 
+
+cd user10 // can access 
+pwd 
+cd / 
+cd home 
+ls -l 
+
+=>Add Permission 
+whoami // user10 
+=add other permission 
+chmod o+r user10    // can access 
+chmod o+wx user10 	// can access 
+
+=>Add group Permission 
+whoami // user10 
+chmod g+r user10    // can access 
+chmod g+wx user10 	// can access 
+
+=>Add user Permission 
+whoami // user10 
+chmod u+r user10    // can access 
+chmod u+wx user10 	// can access 
+
+cd user10 // can access 
+pwd 
+cd / 
+cd home 
+ls -l
+
+=> Remove all Permission 
+whoami // user10 
+=> remove all permission 
+chmod a-r user10 
+chmod a-w user10 
+chmod a-x user10  
+ls -l
+
+=> Add all Permission 
+whoami // user10 
+=> add all permission 
+chmod a+r user10 
+chmod a+w user10 
+chmod a+x user10 
+ls -l 
+
+
+=> Remove/Add all Permission 
+whoami // user10 
+=> add all permission 
+chmod a-rwx user10 
+chmod a+rwx user10 
+ls -l 
+
+
+

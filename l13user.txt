@@ -12,6 +12,29 @@ whoami 				myo
 
 => Check Host Name (Computer Name)
 hostname 			lenovo 
+cat etc/hostname	lenovo 
+
+=>Change Host Name 
+hostnamectl 
+hostnamectl set-hostname myolenovo 
+hostname 				myolenovo
+sudo reboot 
+ctl+c 				(exit)
+w 
+
+----------------------------------
+
+=> Server Uptime 
+uptime
+top    (how to work cpu)
+
+
+
+sudo apt-get install glances
+glances 
+ctl+c       (exit)
+
+-----------------------------------------------
 
 => Check 32bit processor or 64bit processor 
 uname -a 				Linux lenovo 6.5.0-21-generic #21-Ubuntu SMP 	
@@ -19,7 +42,21 @@ uname -a 				Linux lenovo 6.5.0-21-generic #21-Ubuntu SMP
 uname -i or uname -a 	// x86_64 
 getconf LONG_BIT		// 64 
 
+---------------------------------------------- 
 
+=> Check Ubuntu Version 
+hostnamectl 							// detail info ..
+cat /etc/os-release						// detail info ..
+cat /etc/issue 							// Ubuntu 23.10 \n \l
+
+---------------------------------------------- 
+
+=> Upgrade New OS Version 
+hostnamectl 
+do-release-upgrade -c 					(Check for a new Ubuntu release version before upgrade)
+sudo do-release-upgrade 				(upgrade may be 2hours) 3 times click yes 
+
+----------------------------------------------
 => Login  as Root User 
 apt-get update 			// 13: Permission denied 
 
