@@ -1,7 +1,7 @@
 => Group 
 
 => Display all group 
-compgen -g 								(only group name)
+compgen -g 								(only user group name)
 getent group 							(group name and group id)
 cat /etc/group 							(group name and group id)
     

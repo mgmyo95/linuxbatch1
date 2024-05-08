@@ -126,8 +126,186 @@ ls -l
 whoami // user10 
 => add all permission 
 chmod a-rwx user10 
+ls -l
 chmod a+rwx user10 
 ls -l 
 
+----------------------------------
 
+compgen -u 
+compgen -g 
+
+su user10
+123456789
+cd / 
+cd home 
+ls -l 
+chmod g+rwx user10 
+ls -l
+exit 
+
+--
+su user2 
+mg 
+cd /
+cd home 
+ls -l 
+cd user10     // Premission denied 
+exit 
+
+compgen -g
+groups user10 			(check owner)
+getent group user10    
+members user10
+
+sudo adduser user2 user10 
+
+su user2 
+mg 
+cd /
+cd home 
+ls -l 
+cd user10     // Premission denied 
+ls 
+mkdir folder3byuser2 
+ls
+rm -rf folder2byadmin
+ls 
+exit 
+
+// remove user2 in user10
+sudo gpasswd -d user2 user10 
+groups user10 
+members user10 
+
+su user2 
+mg 
+cd /
+cd home 
+ls -l 
+cd user10       // premission denied 
+exit 
+
+-----------------------------
+
+mygroup 
+user10 
+user2 
+-----------------------------
+
+sudo addgroup mygroup 
+
+getent group mygroup
+
+----------------------------- 
+
+=> Change Group Ownership (chgrp = change group ownership) (-R = Recursively . to Recursively change the group ownership of all files and directories under a give directory)
+Syntax : sudo chgrp -R groupname directory 
+
+
+
+whoami 				// administrator 
+cd / 
+cd home 
+ls -l 
+
+sudo chgrp -R user2 user10 
+ls -ls
+exit 
+
+su user2 
+123456789 
+cd / 
+cd home 
+ls -l 
+cd user10 // Permission denied 
+pwd 
+exit 
+
+su user3 
+123456789
+cd / 
+cd home 
+ls -l 
+cd user10 
+exit 
+
+sudo adduser user3 mygroup 
+getent group mygroup 
+members mygroup 
+
+whoami 
+cd / 
+cd home 
+ls -ls
+sudo chgrp -R mygroup user10  
+ls -l 
+
+
+su user3 
+123456789 
+cd / 
+cd home 
+ls -l 
+cd user10 
+exit 
+ 
+
+whoami 
+cd /  
+cd home 
+ls -l 
+sudo chgrp -R user10 user10 
+ls -l 
+
+su user2
+123456789 
+cd / 
+cd home 
+ls -l 
+cd user10 
+exit 
+
+--------------------------------------
+
+=> Change Folder Ownership 
+Syntax : sudo chown -R newowner:groupname directory (chown = change file owner and group)
+
+whoami 
+cd / 
+cd home 
+ls -l 
+sudo chown -R user2:user10 user10 
+ls -l 
+
+su user2
+mg 
+cd / 
+cd home 
+ls -l 
+cd user10 
+pwd 
+exit 
+
+----------------------------------
+
+=> Permission Using Numeric Mode 
+chmod ugo+r directory 
+or 
+chmod -R 444 directory 
+
+su user2 
+mg 
+cd / 
+cd home 
+ls -l 
+
+chmod 777 user2
+ls -l 
+chmod 444 user2 
+ls -l 
+chmod 755 user2 
+ls -l 
+
+--------------------------
 
