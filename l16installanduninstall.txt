@@ -88,11 +88,6 @@ CRUD lote mhr put sudo
 					=>option 
 					sudo apt-get clean 
 					sudo apt-get --fix-broken install 
-		
-
-
-=> Method 3 
-	Facial DEB download file install (.deb files on Ubuntu debian-based Linux Distributins) 
 
 
 
@@ -130,4 +125,97 @@ nvm -v
 node -v 
 npm -v 
 
-23UN
+=> Method 3 : Using snap (snap is already in ubuntu ststem but (if not installed)) sudo apt install snapd
+	 
+
+	=Finding Installed Snap Package 
+
+		Ctrl+Alt+T 
+		snap list		
+
+	=> Find details about a specific snap 
+		sudo info packagename 
+		snap find packagename 	
+
+    => Install Application 
+	   sudo snap install packagename
+	   sudo snap install tree 
+	   sudo snap install vlc 
+	   sudo snap install discord
+	   sudo snap install spotify
+	   sudo snap install notepad-plus-plus 
+
+
+	=> See change or updates to snap packages
+	   snap changes 
+
+	=> Remove Package 
+		(i) => Remove Package 
+			   sudo snap remove tree 
+		
+		(ii) => Update all installed snap packages 
+				sudo snap refresh		(database update)
+
+
+=> Method 4 : Using PPA (Personal Package Archive)
+
+	=> Viewing installed package 
+	ls -l /var/lib/apt/list/
+   
+   sudo add-apt-repository ppa:repositoryname  (https://launchpad.net/ubuntu/+ppas)
+
+   => Install Application
+		sudo add-apt-repository ppa:phd/firefox
+		sudo apt-get update 
+
+	
+	=> Remove Package 
+	(i)	=> Remove Package (Method 1)
+			sudo add-apt-repository --r ppa:repositoryname 
+			(or)
+			sudo add-apt-repository --remove ppa:repositoryname 
+			sudo apt-get update 
+
+			sudo add-apt-repository --remove ppa:phd/firefox  
+			sudo apt-get update 
+
+			=> if can't uninstall (do manually)
+				sudo rm /etc/apt/sources.list.d/packagename 
+
+				=> if needed key name for uninstall 
+				sudo apt-key list 						// find app key name 
+				sudo apt-key del keyid 
+				sudo apt update 
+
+				
+
+	(ii) => Remove Package (Method 2)		(need = sudo apt install ppa-purge)
+			sudo ppa-purge ppa:repositoryname 
+
+			sudo ppa-purge ppa:phd/firefox 
+			sudo apt-get update 
+
+
+	
+
+ => Method 5 (Facial DEB download file install (.deb files on Ubuntu debian-based Linux Distributins))
+
+ => .deb 
+
+		cd ~/downloads/ 
+		sudo dpkg -i installerfile  
+		sudo dpkg -i packagename.deb 
+		sudo dpkg -i firebox.deb 
+
+		cd ~/downloads/ 
+		sudo apt-get install -f  			// fix Dependencies
+
+ 
+ => .run 
+
+		(i)cd ~/downloads/ 
+		sudo dpkg -i installerfile  
+		sudo chmod +x installer_file.run 		// Make the file executable 
+
+		(ii)cd ~/downloads/ 
+		sudo installer_file.run  			or 			su installer_file.run

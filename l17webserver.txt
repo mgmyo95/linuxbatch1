@@ -1,0 +1,126 @@
+=> Web Server 
+=> Step 1 : Update Your System 
+
+   sudo apt-get update 
+   sudo apt-get upgrade -y 
+   reboot 
+
+--------------------------------------- 
+
+=> Step 2 : Install Apache  
+
+   sudo apt install apache2
+
+   Question : y
+
+		config : /etc/apache2/apache2.conf		The main configuration file is located
+
+			sudo a2enmod rewrite 				to enable URL rewriting , you can enable to mode 
+												rewrite module
+			sudo systemctl restart apache2 
+
+		
+	Note : sudo systemctl enable apache2 
+		   sudo systemctl restart apache2 
+
+
+------------------------------------------
+
+=> Step 3 : Manage Firewall 
+	
+	Note : sudo ufw status 
+		   sudo ufw enable 
+		   sudo ufw status 
+		   sudo ufw allow ssh 
+		   sudo ufw allow 3306 							for mysql port 
+
+		   sudo ufw app list 
+
+		   sudo ufw allow 'Apache' 						to allow HTTP traffic on port :80
+		   sudo ufw allow 'Apache Secure'				to allow HTTPS traffic on port : 443
+		   sudo ufw allow 'Apache Full'					to allow both HTTP and HTTPS traffic on 
+		   												port : 443 
+		   sudo ufw status 
+		   sudo ufw reload 
+
+--------------------------------------------------- 
+
+=> Step 4 : Install MySQL 
+
+	sudo apt install mysql-server 
+
+Question : 
+
+	sudo mysql_secure_installation 
+
+Question : 
+
+Note : sudo systemctl status mysql 					Check MySQL status 
+	   sudo systemctl start mysql 
+
+Note : mysql --version 								Check version without login 
+       sudo mysql 		or 	  sudo mysql - root     
+	   SELECT version()								Check version with login 
+	   exit     or    \q 
+
+---------------------------------------------  
+
+=> Step 5 : Install PHP 
+
+	sudo apt install software-properties-common				check repositories 
+	sudo apt install php 							php -v   or php --version 
+
+Question : y 
+
+	sudo nano /var/www/html/info.php 
+	<?php 
+		phpinfo();
+	?>
+
+Test : enter this url to your brower http://yourserverip/info.php
+
+--------------------------------------------- 
+
+=> Step 6 : Install phpMyAdmin 
+
+	sudo apt install phpmyadmin				
+	
+Question : Y 
+
+	sudo systemctl restart apache2 
+
+Test : enter this url to your brower http://yourserverip/phpmyadmin 
+
+----------------------------------------------
+
+=> Step 7 : Set Password For Root Account (For Mysql 8.0 and later versions)
+
+----------------------------------------------
+
+=> Step 8 : Configure Database Remote Access (Optional)
+
+----------------------------------------------
+
+=> Step 9 : Connect DNS Server (Domain Name Server)
+
+	continue to Cloud Computing Class 
+
+----------------------------------------------
+
+=> Step 10 : SSL Certificate (Free)
+
+	continue to Cloud Computing Class 
+
+----------------------------------------------
+
+=> Step 11 : Other 
+
+	git 
+	composer 
+	npm 
+	nvm 
+	node 
+	python 
+
+---------------------------------------------- 
+
