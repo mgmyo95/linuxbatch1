@@ -45,15 +45,19 @@
 
 --------------------------------------------------- 
 
-=> Step 4 : Install MySQL 
+=> Step 4 : Install MySQL (optional) 
 
 	sudo apt install mysql-server 
 
-Question : 
+Question : do you want to continue Y
 
 	sudo mysql_secure_installation 
 
-Question : 
+Question : Press / y / Y for yes , any other key for No : n 
+			Remove anonymous users? (Press y|Y for Yes, any other key for No) : y	
+			Disallow root login remotely ? (Press y|Y for yes, any other key for No) : n 
+			Remove test database and access to it? (Press y|Y for Yes,any other key for No ) y 
+			Reload privilege  tables now? (Press y|Y for Yes, any other key for No) : y 
 
 Note : sudo systemctl status mysql 					Check MySQL status 
 	   sudo systemctl start mysql 
@@ -70,7 +74,7 @@ Note : mysql --version 								Check version without login
 	sudo apt install software-properties-common				check repositories 
 	sudo apt install php 							php -v   or php --version 
 
-Question : y 
+Question : Do you want to continue? y
 
 	sudo nano /var/www/html/info.php 
 	<?php 
@@ -85,7 +89,11 @@ Test : enter this url to your brower http://yourserverip/info.php
 
 	sudo apt install phpmyadmin				
 	
-Question : Y 
+Question : Do you want to continue? Y 
+			configure phpmyadmin 					Note: move cursor top/bottom arrow key , 
+													choose spacebar , tab change mode 
+			cofigure database for phpmyadmin with dbconfig-common? y 
+			MySQL application password for phpmyadmin : mydbserver2024
 
 	sudo systemctl restart apache2 
 
@@ -95,9 +103,62 @@ Test : enter this url to your brower http://yourserverip/phpmyadmin
 
 => Step 7 : Set Password For Root Account (For Mysql 8.0 and later versions)
 
+	sudo mysql -u root 
+
+	ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY 'mydbserver2025';
+
+	GRANT ALL PRIVILEGES ON *.* TO 'root'@'localhost' WITH GRANT OPTION;
+	FLUSH PRIVILEGES;
+
+	exit or \q 
+	sudo mysql -u root -p 
+	mydbserver2025 
+	exit or \q 
+
+	mysql -u root -p -h yourserverip 
+	mysql -u root -p -h 139.59.230.166 				// access deny (cuz root account don't have 
+														remote permission)
+
 ----------------------------------------------
 
 => Step 8 : Configure Database Remote Access (Optional)
+
+	sudo nano /etc/mysql/mysql.conf.d/myqld.cnf 			// Edit Mysql Configuration 
+	bind-address = 127.0.0.1 								// find this line 
+	bind-address = 0.0.0.0 									// and change it to 
+
+	sudo systemctl restart mysql 
+
+	sudo mysql -u root -p 
+	mydbserver2025 
+
+	CREATE USER 'user1'@'%' IDENTIFIED BY 'mydbserver2025';
+
+	GRANT ALL PRIVILEGES ON *.* TO 'root'@'%' WITH GRANT OPTION;
+	FLUSH PRIVILEGES;
+
+	exit 
+	
+	myql -u user1 -p 
+	mydbserver2025
+
+	mysql -u root -p -h yourserverip 				// access deny (cuz root account don't have 
+														remote permission)
+	mysql -u root -p -h 139.59.230.166
+
+	mysql -u user1 -p -h yourserverip 
+	mysql -u user1 -p -h 139.59.230.166  			access (cuz user1 account have remote 
+													permission)
+
+	linux = ping 139.59.230.166
+			ifconfig 				// need to install sudo apt install traceroute 
+			traceroute 139.59.230.166 
+			whois 139.59.230.166				// sudo apt install whois 
+
+	windows = ipconfig 
+			  tracert 139.59.230.166 
+			  nslookup 139.59.230.166
+	
 
 ----------------------------------------------
 
@@ -124,4 +185,4 @@ Test : enter this url to your brower http://yourserverip/phpmyadmin
 
 ---------------------------------------------- 
 
-5WS 
+13RT 

@@ -218,4 +218,4 @@ npm -v
 		sudo chmod +x installer_file.run 		// Make the file executable 
 
 		(ii)cd ~/downloads/ 
-		sudo installer_file.run  			or 			su installer_file.run
+		sudo installer_file.run   or  sh installer_file.run
