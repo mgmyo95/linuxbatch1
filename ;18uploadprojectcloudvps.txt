@@ -1,0 +1,45 @@
+=> Upload Project to Cloud VPS (static website) for server 
+
+git -v 
+git config --global user.name "mgmyo"
+git config user.name 
+git config --global user.email "mgmyo95@gmail.com" 
+git config user.email 
+
+ssh-keygen 
+ls -la
+cat /root/.ssh/id_ed22519.pub 
+
+ssh -T git@github.com 
+
+cd /var/www/html 
+git clone git@github.com.maungmyo.isn/admintemplate.git 
+ls -l 
+
+=> Pull request for latest change 
+cd /var/www/html/admintemplate 
+git pull origin main 
+
+--------------------------------------------
+
+=> Apache Config for default directory 
+
+www-data:www-data = apache user name 
+
+=Change ownership and permission ( -R = recursive) 
+sudo chmod -R www-data:www-data /var/www/html/admintemplate 
+sudo chmod -r 755 /var/www/html/admintemplate 
+
+= Modify the apache configuration file 
+sudo nano /etc/apache2/sites-available/000-default.conf 
+ctl+x 
+ctl+y 
+
+=Find & Edit 
+DocumentRoot /var/www/html 		change to DocumentRoot /var/www/html/admintemplate/ 
+
+sudo systemctl restart apache2 
+
+--------------------------------------------------- 
+
+att code = gmail address put

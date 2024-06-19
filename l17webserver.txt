@@ -20,8 +20,10 @@
 			sudo systemctl restart apache2 
 
 		
-	Note : sudo systemctl enable apache2 
-		   sudo systemctl restart apache2 
+			sudo stystemctl status apache2
+	Note : 	sudo systemctl enable apache2 
+			sudo systemctl start apache2 
+		   	sudo systemctl restart apache2 
 
 
 ------------------------------------------
@@ -45,7 +47,7 @@
 
 --------------------------------------------------- 
 
-=> Step 4 : Install MySQL (optional) 
+=> Step 4 : Install MySQL (optional) 8.0.37
 
 	sudo apt install mysql-server 
 
@@ -105,14 +107,14 @@ Test : enter this url to your brower http://yourserverip/phpmyadmin
 
 	sudo mysql -u root 
 
-	ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY 'mydbserver2025';
+	ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY 'mydbserver1995';
 
 	GRANT ALL PRIVILEGES ON *.* TO 'root'@'localhost' WITH GRANT OPTION;
 	FLUSH PRIVILEGES;
 
 	exit or \q 
 	sudo mysql -u root -p 
-	mydbserver2025 
+	mydbserver1995 
 	exit or \q 
 
 	mysql -u root -p -h yourserverip 
@@ -123,24 +125,24 @@ Test : enter this url to your brower http://yourserverip/phpmyadmin
 
 => Step 8 : Configure Database Remote Access (Optional)
 
-	sudo nano /etc/mysql/mysql.conf.d/myqld.cnf 			// Edit Mysql Configuration 
+	sudo nano /etc/mysql/mysql.conf.d/mysqld.cnf 			// Edit Mysql Configuration 
 	bind-address = 127.0.0.1 								// find this line 
 	bind-address = 0.0.0.0 									// and change it to 
 
 	sudo systemctl restart mysql 
 
 	sudo mysql -u root -p 
-	mydbserver2025 
+	mydbserver1995
 
-	CREATE USER 'user1'@'%' IDENTIFIED BY 'mydbserver2025';
+	CREATE USER 'user1'@'%' IDENTIFIED BY 'userdbserver1995';
 
-	GRANT ALL PRIVILEGES ON *.* TO 'root'@'%' WITH GRANT OPTION;
+	GRANT ALL PRIVILEGES ON *.* TO 'user1'@'%' WITH GRANT OPTION;
 	FLUSH PRIVILEGES;
 
 	exit 
 	
 	myql -u user1 -p 
-	mydbserver2025
+	userdbserver1995
 
 	mysql -u root -p -h yourserverip 				// access deny (cuz root account don't have 
 														remote permission)
@@ -176,13 +178,108 @@ Test : enter this url to your brower http://yourserverip/phpmyadmin
 
 => Step 11 : Other 
 
-	git 
-	composer 
-	npm 
-	nvm 
+	=>git 
+		sudo apt-get install git 
+		git -v 				2.40.1
+
+	=>composer 
+		https://getcomposer.org/download/
+
+		php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');"
+		php -r "if (hash_file('sha384', 'composer-setup.php') === 'dac665fdc30fdd8ec78b38b9800061b4150413ff2e3b6f88543c636f7cd84f6db9189d43a81e5503cda447da73c7e5b6') { echo 'Installer verified'; } else { echo 'Installer corrupt'; unlink('composer-setup.php'); } echo PHP_EOL;"
+		php composer-setup.php
+		php -r "unlink('composer-setup.php');"	
+
+		sudo mv composer.phar /usr/local/bin/composer
+
+		composer 
+
+	=> node js 
+	https://nodejs.org/en/download/package-manager 
+
+	sudo apt-get update 
+	sudo apt-get upgrade 
+
+	sudo apt install curl 
+
+	=> nvm 
+	https://github.com/nvm-sh/nvm 
+	curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.7/install.sh | bash 
+
+	export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || printf %s "${XDG_CONFIG_HOME}/nvm")"
+	[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" # This loads nvm
+
+	source ~/.bashrc
+
+	nvm -v 
+
 	node 
+	nvm insall 22 
+
+	node -v 
+	npm -v 
+
+	=> Set node version (optional) 
+	nvm ls 			or 		nvm list 			or 		nvm list-remote 
+
+	eg (up use)
+		nvm install v22.3.0
+		nvm use v22.3.0 
+		restart 
+
+	eg (up use)
+		nvm install v18.20.3
+		nvm use v18.20.3
+		restart 
+	
 	python 
 
 ---------------------------------------------- 
 
 13RT 
+
+https://localhost/phpmyadmin/
+
+-----------------------------------------------
+
+// Uninstall Apache 
+
+	sudo systemctl status apache2 
+	sudo systemctl stop apache2 
+	sudo systemctl enable apache2 
+	sudo systemctl start apaceh2 
+
+	sudo apt-get purge apache2 
+	sudo apt-get autoremove 
+
+
+	=>Remove any remaining configuration files and directories 
+	sudo rm -rf /etc/apaceh2 
+	sudo rm -rf /var/www/html
+
+	sudo systemctl status apache2 
+
+-----------------------------------------------
+
+=> Uninstall Mysql 
+	sudo systemctl status mysql 
+	sudo systemctl stop mysql 
+
+	sudo apt-get purge mysql-server
+	sudo apt-get autoremove 
+	sudo apt-get autoclean
+
+	=>Remove any remaining configuration files and directories 
+	sudo rm -rf /etc/mysql 
+	sudo rm -rf /var/lib/mysql 
+	sudo rm -rf /var/log/mysql 
+
+-----------------------------------------------
+
+// Uninstall Nodejs 
+
+	sudo apt remove nodejs 
+	sudo apt remove npm 
+
+-----------------------------------------------
+
