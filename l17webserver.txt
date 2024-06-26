@@ -225,11 +225,13 @@ Test : enter this url to your brower http://yourserverip/phpmyadmin
 	eg (up use)
 		nvm install v22.3.0
 		nvm use v22.3.0 
+		nvm alias default v22.3.0
 		restart 
 
-	eg (up use)
+	eg (down use)
 		nvm install v18.20.3
 		nvm use v18.20.3
+		nvm alias default v20.12.2
 		restart 
 	
 	python 
@@ -276,10 +278,20 @@ https://localhost/phpmyadmin/
 
 -----------------------------------------------
 
+// Uninstall PHP 
+
+sudo apt remove 'php*' 
+sudo apt purge 'php*'
+
+sudo apt-get autoremove 
+sudo apt-get autoclean
+
+-----------------------------------------------
+
 // Uninstall Nodejs 
 
-	sudo apt remove nodejs 
-	sudo apt remove npm 
+sudo apt remove nodejs 
+sudo apt remove npm 
 
 -----------------------------------------------
 

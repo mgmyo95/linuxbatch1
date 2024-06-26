@@ -51,3 +51,16 @@ gunzip -v l1example.tar.gz
 
 => Extract tar 
 tar xvf l1example.tar 
+
+-----------------------------------------------
+
+=> Unrar 
+
+sudo apt update
+sudo apt-get upgrade -y 
+
+sudo apt install unrar 
+
+unrar x filename.rar
+
+-----------------------------------------------
